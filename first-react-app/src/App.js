@@ -26,7 +26,8 @@ function App() {
 
   return (
     <div className="App">
-       <h3>{getFullName(mObj.firstName, mObj.lastName)} </h3>
+      <div className="blogCard">
+      <h3>{getFullName(mObj.firstName, mObj.lastName)} </h3>
        <p> Age: {mObj.age} </p>
        <p>Job: {mObj.job}</p>
 
@@ -36,6 +37,7 @@ function App() {
        {
          mArr[0] > 1 ? "True" : "False"
        }
+      </div>
     </div>
   );
 }
