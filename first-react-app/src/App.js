@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import BlogCard from './BlogCard';
+
 function App() {
   const firstName = 'John ';
   const lastName = 'Wick';
@@ -25,20 +27,23 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="blogCard">
-      <h3>{getFullName(mObj.firstName, mObj.lastName)} </h3>
-       <p> Age: {mObj.age} </p>
-       <p>Job: {mObj.job}</p>
+    // <div className="App">
+    //   <div className="blogCard">
+    //   <h3>{getFullName(mObj.firstName, mObj.lastName)} </h3>
+    //    <p> Age: {mObj.age} </p>
+    //    <p>Job: {mObj.job}</p>
 
-       {detailsInputbox}
+    //    {detailsInputbox}
 
-       {/* {mArr} */}
-       {
-         mArr[0] > 1 ? "True" : "False"
-       }
-      </div>
-    </div>
+    //    {/* {mArr} */}
+    //    {
+    //      mArr[0] > 1 ? "True" : "False"
+    //    }
+    //   </div>
+    // </div>
+  
+    <BlogCard fullname={mObj.firstName + ' ' + mObj.lastName} age = {mObj.age} job={mObj.job}></BlogCard>
+
   );
 }
 
