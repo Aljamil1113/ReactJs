@@ -1,5 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import classes from './App.module.css';
 
 import BlogCard from './BlogCard';
 
@@ -41,9 +43,13 @@ function App() {
     //    }
     //   </div>
     // </div>
-  
-    <BlogCard fullname={mObj.firstName + ' ' + mObj.lastName} age = {mObj.age} job={mObj.job}></BlogCard>
-
+    <div className={classes.App}> 
+       <div className={classes.blogCard}>
+         <BlogCard  fullname={mObj.firstName + ' ' + mObj.lastName} age = {mObj.age} job={mObj.job}></BlogCard>
+       </div>
+    </div>
+    
+   
   );
 }
 
