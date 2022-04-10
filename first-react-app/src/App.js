@@ -1,56 +1,68 @@
 import logo from './logo.svg';
 // import './App.css';
-
 import classes from './App.module.css';
-
 import BlogCard from './BlogCard';
+import { Component } from 'react';
 
-function App() {
-  const firstName = 'John ';
-  const lastName = 'Wick';
-  const age = 35;
-  const job = 'Team Principal';
+class App extends Component {
 
-  const getFullName = (firstName, lastName) => {
-    return `${firstName}, ${lastName}`
+  state = {
+    showBlogs: true
   }
 
-  const inputPlaceholder = 'Enter your details';
+ firstName = 'John ';
+ lastName = 'Wick';
+ age = 35;
+ job = 'Team Principal';
 
-  const detailsInputbox = <input placeholder={inputPlaceholder} autocomplete />;
+ getFullName = (firstName, lastName) => {
+    return `${this.firstName}, ${this.lastName}`
+  }
 
-  const mArr = [1, 2, 3, 4];
+ inputPlaceholder = 'Enter your details';
 
-  const mObj = {
+ detailsInputbox = <input placeholder={this.inputPlaceholder} autocomplete />;
+
+ mArr = [1, 2, 3, 4];
+
+ mObj = {
       firstName: 'Toto',
       lastName: 'Obj',
       age: 26,
       job: 'Hacker'
   };
 
-  return (
-    // <div className="App">
-    //   <div className="blogCard">
-    //   <h3>{getFullName(mObj.firstName, mObj.lastName)} </h3>
-    //    <p> Age: {mObj.age} </p>
-    //    <p>Job: {mObj.job}</p>
+  showBlogCard = <div className={classes.App}> 
+  <button onClick={this.onHideBtnClick}>Hide Lists</button>
+ <br></br>
+  <div className={classes.blogCard}>
+  <BlogCard  fullname={this.mObj.firstName + ' ' + this.mObj.lastName} age = {this.mObj.age} job={this.mObj.job}></BlogCard>
+ </div>
+  </div>
 
-    //    {detailsInputbox}
+  
+  onHideBtnClick = () => {
+    // alert('Button Clicked');
+    this.setState({showBlogs: false});
+    console.log(this.state.showBlogs);
+  }
 
-    //    {/* {mArr} */}
-    //    {
-    //      mArr[0] > 1 ? "True" : "False"
-    //    }
-    //   </div>
-    // </div>
-    <div className={classes.App}> 
-       <div className={classes.blogCard}>
-         <BlogCard  fullname={mObj.firstName + ' ' + mObj.lastName} age = {mObj.age} job={mObj.job}></BlogCard>
-       </div>
-    </div>
-    
-   
-  );
+  render() {
+
+    return (
+      <div className='App'>
+        <button onClick={this.onHideBtnClick}>Hide Lists</button>
+        <br></br>
+        {
+          this.state.showBlogs ? this.showBlogCard: null
+        }
+      </div>
+
+     
+    );
+
+  }
+
 }
 
 export default App;
