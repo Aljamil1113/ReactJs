@@ -29,11 +29,13 @@ class App extends Component {
       firstName: 'Toto',
       lastName: 'Obj',
       age: 26,
-      job: 'Hacker'
+      job: 'Hacker',
+      position: 0
   };
 
   showBlogCard =  <div className={classes.blogCard}>
-  <BlogCard  fullname={this.mObj.firstName + ' ' + this.mObj.lastName} age = {this.mObj.age} job={this.mObj.job}></BlogCard>
+  <BlogCard  fullname={this.mObj.firstName + ' ' + this.mObj.lastName} age = {this.mObj.age} job={this.mObj.job} 
+  position={this.mObj.position} onLikeBtnClick={this.onLikeBtnClick}></BlogCard>
  </div>
 
 
@@ -59,7 +61,6 @@ class App extends Component {
           this.state.showBlogs ? this.showBlogCard: null
         }
       </div>
-
     );
 
   }
