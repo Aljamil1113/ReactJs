@@ -32,33 +32,34 @@ class App extends Component {
       job: 'Hacker'
   };
 
-  showBlogCard = <div className={classes.App}> 
-  <button onClick={this.onHideBtnClick}>Hide Lists</button>
- <br></br>
-  <div className={classes.blogCard}>
+  showBlogCard =  <div className={classes.blogCard}>
   <BlogCard  fullname={this.mObj.firstName + ' ' + this.mObj.lastName} age = {this.mObj.age} job={this.mObj.job}></BlogCard>
  </div>
-  </div>
+
 
   
   onHideBtnClick = () => {
     // alert('Button Clicked');
-    this.setState({showBlogs: false});
+    //this.setState({showBlogs: false});
+
+    this.setState((prevState, prevProps) => {
+      return {showBlogs: !prevState.showBlogs}
+    });
+
     console.log(this.state.showBlogs);
   }
 
   render() {
 
     return (
-      <div className='App'>
-        <button onClick={this.onHideBtnClick}>Hide Lists</button>
+      <div className={classes.App}> 
+       <button onClick={this.onHideBtnClick}>Hide Lists</button>
         <br></br>
         {
           this.state.showBlogs ? this.showBlogCard: null
         }
       </div>
 
-     
     );
 
   }
