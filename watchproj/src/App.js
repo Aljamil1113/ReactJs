@@ -3,8 +3,14 @@ import classes from './App.module.css';
 import Topbar from './Topbar';
 import ProductPreview from './ProductPreview';
 import ProductDetails from './ProductDetails';
+import ProductData from './ProductData';
 
 class App extends Component {
+  state = {
+    productData: ProductData,
+    currentPreviewImage: 'https://imgur.com/iOeUBV7.png',
+    showHeartBeatSection: false
+  }
 
   render() {
     return (
@@ -15,10 +21,10 @@ class App extends Component {
   
         <div className={classes.MainContainer}>
           <div className={classes.ProductPreview}>
-           <ProductPreview></ProductPreview>
+           <ProductPreview currentPreviewImage={this.state.currentPreviewImage} showHeartBeatSection={this.state.showHeartBeatSection}></ProductPreview>
           </div>
           <div className={classes.ProductData}>
-            <ProductDetails></ProductDetails>
+            <ProductDetails data={this.state.productData}></ProductDetails>
           </div>
         </div>
       </div>
