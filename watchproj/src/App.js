@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
-import Topbar from './Topbar';
-import ProductPreview from './ProductPreview';
-import ProductDetails from './ProductDetails';
-import ProductData from './ProductData';
+import Topbar from './Topbar/Topbar';
+import ProductPreview from './ProductPreview/ProductPreview';
+import ProductDetails from './ProductDetails/ProductDetails';
+import ProductData from './utils/ProductData';
 
 class App extends Component {
   state = {
