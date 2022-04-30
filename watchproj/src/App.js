@@ -8,8 +8,17 @@ import ProductData from './utils/ProductData';
 class App extends Component {
   state = {
     productData: ProductData,
+    currentPreviewImagePos: 0,
     currentPreviewImage: 'https://imgur.com/iOeUBV7.png',
     showHeartBeatSection: false
+  }
+
+  onColorOptionClick = (pos) => {
+    this.setState({currentPreviewImagePos: pos});
+  }
+
+  onFeatureItemClick = (pos) => {
+      this.setState({showHeartBeatSection: pos});
   }
 
   render() {
@@ -21,10 +30,13 @@ class App extends Component {
   
         <div className={classes.MainContainer}>
           <div className={classes.ProductPreview}>
-           <ProductPreview currentPreviewImage={this.state.currentPreviewImage} showHeartBeatSection={this.state.showHeartBeatSection}></ProductPreview>
+           <ProductPreview currentPreviewImage={this.state.productData.colorOptions[this.state.currentPreviewImagePos].imageUrl} 
+           showHeartBeatSection={this.state.showHeartBeatSection} ></ProductPreview>
           </div>
           <div className={classes.ProductData}>
-            <ProductDetails data={this.state.productData}></ProductDetails>
+            <ProductDetails data={this.state.productData} onColorOptionClick={this.onColorOptionClick} currentPreviewImagePos={this.state.currentPreviewImagePos}
+             onFeatureItemClick={this.onFeatureItemClick}>
+            </ProductDetails>
           </div>
         </div>
       </div>
