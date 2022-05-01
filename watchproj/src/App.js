@@ -22,6 +22,13 @@ class App extends Component {
     this.setState({currentSelectedFeature: pos});
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Next State => ', nextState)
+    console.log('Current State => ', this.state);
+
+    return true;
+  }
+
   render() {
     return (
       <div className="App">
