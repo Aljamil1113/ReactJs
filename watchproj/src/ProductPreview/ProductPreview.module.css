@@ -20,8 +20,8 @@
 
   .HeartBeatSection {
     position: absolute;
-    top: 100%;
-    left: 100%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
   
     color: whitesmoke;
@@ -37,4 +37,18 @@
   .HeartBeatSection > p {
     margin-top: 16px;
     animation: beat 10% infinite;
+  }
+  
+  @keyframes beat {
+    0% {
+      transform: scale(1, 1);
+    }
+  
+    50% {
+      transform: scale(1.2, 1.2);
+    }
+  
+    100% {
+      transform: scale(1, 1);
+    }
   }
